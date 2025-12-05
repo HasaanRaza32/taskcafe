@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: taskcafe
+      POSTGRES_PASSWORD: taskcafe
+      POSTGRES_DB: taskcafe
+
+  taskcafe:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
